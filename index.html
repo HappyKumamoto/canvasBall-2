@@ -36,15 +36,16 @@
 		context.clearRect(0,0,canvas.width,canvas.height);
 		drawBall();
 		
-		if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+		if(x + dx > canvas.width-ballRadius+5 || x + dx < ballRadius-5) {
 			dx = -dx;
 			context.fillStyle = getRandomColor();
 		}
 		
-		if (y + dy > canvas.height-ballRadius || y + dy <ballRadius) {
+		if (y + dy > canvas.height-ballRadius+5 || y + dy <ballRadius-5) {
 			dy = -dy;
 			context.fillStyle = getRandomColor();
 		}
+
 		x += dx;
 		y += dy;
 	  }
