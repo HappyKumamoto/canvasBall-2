@@ -2,65 +2,14 @@
 <html>
 <head>
 	<meta charset="utr-8" />
+	<link rel="stylesheet" href="canvasBall2.css" />
 	<title>jisakuRandom</title>
-	<style> * { padding: 20; margin:20; }
-				canvas { background: #BBBBBB;
-				display: block;
-				margin: 0 auto; }
+	
 	</style>
 </head>
 
 <body>
 	<canvas id="myCanvas" width="600" height="400"></canvas>
-	
-	<script>
-	//課題varをletに変えると動かない
-	//コードの重複は解決
-	var canvas = document.getElementById("myCanvas");
-	var context = canvas.getContext("2d");
-	var ballRadius = 30;
-	var x = canvas.width / 2;
-	var y = canvas.height -30; 
-	var dx = 2;
-	var dy = -2;
-	
-	function drawBall() {
-		context.beginPath();
-		context.arc(x,y,30, 0,Math.PI*2);
-		context.fillStyle = null;
-		context.fill();
-		context.closePath();
-	}
-	
-	function draw() {
-		context.clearRect(0,0,canvas.width,canvas.height);
-		drawBall();
-		
-		if(x + dx > canvas.width-ballRadius+5 || x + dx < ballRadius-5) {
-			dx = -dx;
-			context.fillStyle = getRandomColor();
-		}
-		
-		if (y + dy > canvas.height-ballRadius+5 || y + dy <ballRadius-5) {
-			dy = -dy;
-			context.fillStyle = getRandomColor();
-		}
-
-		x += dx;
-		y += dy;
-	  }
-	  
-	  function getRandomColor() {
-	  	var letters = '0123456789ABCDEF'.split('');
-	  	var color = '#';
-	  	for ( var i = 0; i< 6; i++) {
-	  		color += letters[Math.floor(Math.random() *16)];
-	  	}
-	  	return color;
-	  }
-	  
-	  setInterval(draw,20);  <!--ボールの速さ-->
-	  
-	  </script>
+	<script src="canvasBall2.js"> </script>
 </body>
 </html>
