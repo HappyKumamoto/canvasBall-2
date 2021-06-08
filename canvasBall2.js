@@ -18,7 +18,7 @@ let canvas = document.getElementById("myCanvas");
 		context.clearRect(0,0,canvas.width,canvas.height);//この行削除で線描タイプ
 		drawBall();
 		
-		if(x + dx > canvas.width-ballRadius+5 || x + dx < ballRadius-5) {
+		if(x + dx > canvas.width-ballRadius+5 || x + dx < ballRadius-5) {//壁に当たってすこしへこむ感じ
 			dx = -dx;
 			context.fillStyle = getRandomColor();
 		}
@@ -40,4 +40,4 @@ let canvas = document.getElementById("myCanvas");
 	  	return color;
 	  }
 	  
-	  setInterval(draw,20);    <!--ボールの速さ-->	  
+	  setInterval(draw,20);    //ボールの速さ調節	  
